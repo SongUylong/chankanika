@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chankanika Rin - Personal Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      body {
+        font-family: "Merriweather", serif;
+        cursor: none;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: -1;
+        background: #f9f5f0;
+        background-image: radial-gradient(
+            circle at 10% 20%,
+            #d2c1b6,
+            transparent 40%
+          ),
+          radial-gradient(circle at 80% 70%, #45688220, transparent 40%);
+        animation: subtle-gradient-animation 20s ease-in-out infinite alternate;
+      }
+      @keyframes subtle-gradient-animation {
+        from {
+          background-position: 0% 50%;
+        }
+        to {
+          background-position: 100% 50%;
+        }
+      }
+
+      .cursor-dot,
+      .cursor-outline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 10000;
+        pointer-events: none;
+        transition: opacity 0.3s, transform 0.3s, width 0.3s, height 0.3s;
+      }
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #1b3c53;
+      }
+      .cursor-outline {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(69, 104, 130, 0.3);
+        transition: width 0.2s, height 0.2s, transform 0.2s;
+      }
+      .cursor-hidden {
+        opacity: 0;
+      }
+      .cursor-hover {
+        transform: scale(1.5) translate(-50%, -50%);
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f9f5f0;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #d2c1b6;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #456882;
+      }
+
+      .nav-link.active {
+        color: #1b3c53;
+        font-weight: 900;
+      }
+
+      .timeline-container {
+        position: relative;
+      }
+      .timeline-container::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: #d2c1b6;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+        border-radius: 2px;
+      }
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+      }
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: #f9f5f0;
+        border: 4px solid #456882;
+        top: 25px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .timeline-left {
+        left: 0;
+      }
+      .timeline-right {
+        left: 50%;
+      }
+      .timeline-left::before,
+      .timeline-right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 32px;
+        width: 0;
+        z-index: 1;
+        border: medium solid #d2c1b699;
+      }
+      .timeline-left::before {
+        right: 30px;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent #d2c1b699;
+      }
+      .timeline-right::before {
+        left: 30px;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #d2c1b699 transparent transparent;
+      }
+      .timeline-right::after {
+        left: -10px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .timeline-container::after {
+          left: 31px;
+        }
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+        .timeline-item::before {
+          left: 60px;
+          border: medium solid #d2c1b699;
+          border-width: 10px 10px 10px 0;
+          border-color: transparent #d2c1b699 transparent transparent;
+        }
+        .timeline-left::after,
+        .timeline-right::after {
+          left: 21px;
+        }
+        .timeline-right {
+          left: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#F9F5F0] text-[#1B3C53]">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <header
+      class="bg-[#F9F5F0]/30 shadow-sm fixed top-0 left-0 right-0 z-50 backdrop-blur-lg transition-all duration-300"
+    >
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-black text-[#1B3C53]"
+          >CHANKANIKA RIN</a
+        >
+        <ul
+          class="hidden md:flex space-x-10 text-sm font-bold tracking-wider uppercase"
+        >
+          <li>
+            <a
+              href="#about"
+              onclick="navigateToSection('about')"
+              class="nav-link hover:text-[#1B3C53] transition-colors duration-300"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#experience"
+              onclick="navigateToSection('experience')"
+              class="nav-link hover:text-[#1B3C53] transition-colors duration-300"
+              >Experience</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              onclick="navigateToSection('projects')"
+              class="nav-link hover:text-[#1B3C53] transition-colors duration-300"
+              >Video</a
+            >
+          </li>
+          <li>
+            <a
+              href="#education"
+              onclick="navigateToSection('education')"
+              class="nav-link hover:text-[#1B3C53] transition-colors duration-300"
+              >Education</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              onclick="navigateToSection('contact')"
+              class="nav-link hover:text-[#1B3C53] transition-colors duration-300"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="min-h-screen flex items-center pt-24 pb-16">
+        <div class="container mx-auto px-6">
+          <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div class="order-2 lg:order-2" data-aos="fade-left">
+                <h1
+                  class="text-5xl lg:text-6xl font-black text-[#1B3C53] mb-4 leading-tight"
+                >
+                  Chankanika Rin
+                </h1>
+                <h2 class="text-xl font-bold text-[#456882] mb-6">
+                  Business Administration Student & Aspiring Marketer
+                </h2>
+                <p class="text-lg leading-relaxed text-[#1B3C53] mb-8">
+                  Passionate about marketing and entrepreneurship, I'm seeking
+                  an internship to apply classroom knowledge in real-world
+                  projects and develop practical skills in digital marketing.
+                </p>
+                <div class="flex items-center space-x-6">
+                  <a
+                    href="mailto:rinchankanika@gmail.com"
+                    class="text-[#1B3C53] hover:text-[#456882] transition-colors"
+                  >
+                    <svg
+                      class="w-7 h-7"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"
+                      />
+                      <path
+                        d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://kh.linkedin.com/in/chankanika-rin-511945210"
+                    class="text-[#1B3C53] hover:text-[#456882] transition-colors"
+                  >
+                    <svg
+                      class="w-7 h-7"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="order-1 lg:order-1 flex justify-center"
+                data-aos="fade-right"
+              >
+                <div class="relative w-80 h-80">
+                  <div
+                    class="absolute inset-0 bg-gradient-to-br from-[#d2c1b6] to-[#456882] rounded-full blur-xl opacity-70"
+                  ></div>
+                  <img
+                    src="photo_2025-10-08_11-17-35.jpg"
+                    alt="Chankanika Rin"
+                    class="relative rounded-full w-full h-full object-cover shadow-2xl border-4 border-white/50"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="container mx-auto px-6 text-center -mt-8 mb-16"
+        data-aos="fade-up"
+      >
+        <div
+          class="bg-white/30 backdrop-blur-md inline-flex p-1.5 rounded-lg shadow-lg border border-white/20 space-x-2"
+        >
+          <button id="aboutBtn" onclick="showAbout()" class=""></button>
+          <button id="cvBtn" onclick="showCv()" class=""></button>
+        </div>
+      </div>
+
+      <div id="aboutMeContent">
+        <section id="experience" class="py-24 bg-transparent">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+              <h2 class="text-4xl font-bold text-[#1B3C53]">My Journey</h2>
+              <p class="text-[#1B3C53] mt-4 max-w-2xl mx-auto text-lg">
+                A timeline of my professional experience and achievements.
+              </p>
+            </div>
+            <div class="timeline-container max-w-4xl mx-auto">
+              <div class="timeline-item timeline-left" data-aos="fade-right">
+                <div
+                  class="bg-white/30 backdrop-blur-md p-6 rounded-lg shadow-lg border border-white/20"
+                >
+                  <p class="text-[#456882] font-semibold mb-2 text-sm">
+                    2023 - 2024
+                  </p>
+                  <h3 class="text-xl font-bold text-[#1B3C53] mb-2">
+                    Marketing Team Member
+                  </h3>
+                  <p class="text-[#1B3C53] font-medium mb-3">
+                    AIESEC Organization
+                  </p>
+                  <p class="text-sm leading-relaxed">
+                    Collaborated in a dynamic team to create and market engaging
+                    events for youth leadership and cultural exchange.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item timeline-right" data-aos="fade-left">
+                <div
+                  class="bg-white/30 backdrop-blur-md p-6 rounded-lg shadow-lg border border-white/20"
+                >
+                  <p class="text-[#456882] font-semibold mb-2 text-sm">2023</p>
+                  <h3 class="text-xl font-bold text-[#1B3C53] mb-2">
+                    Translator
+                  </h3>
+                  <p class="text-[#1B3C53] font-medium mb-3">Expert Cambodia</p>
+                  <p class="text-sm leading-relaxed">
+                    Provided live English-to-Khmer translation for over 20
+                    international clients during a one-day corporate event.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item timeline-left" data-aos="fade-right">
+                <div
+                  class="bg-white/30 backdrop-blur-md p-6 rounded-lg shadow-lg border border-white/20"
+                >
+                  <p class="text-[#456882] font-semibold mb-2 text-sm">
+                    2022 - 2023
+                  </p>
+                  <h3 class="text-xl font-bold text-[#1B3C53] mb-2">
+                    Sales Representative
+                  </h3>
+                  <p class="text-[#1B3C53] font-medium mb-3">
+                    Soriya Pearl & CO
+                  </p>
+                  <p class="text-sm leading-relaxed">
+                    Assisted over 30 clients daily, providing expert product
+                    knowledge and contributing directly to sales growth.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item timeline-right" data-aos="fade-left">
+                <div
+                  class="bg-white/30 backdrop-blur-md p-6 rounded-lg shadow-lg border border-white/20"
+                >
+                  <p class="text-[#456882] font-semibold mb-2 text-sm">
+                    2022 - 2023
+                  </p>
+                  <h3 class="text-xl font-bold text-[#1B3C53] mb-2">
+                    Awards & Competitions
+                  </h3>
+                  <ul
+                    class="list-disc list-inside text-[#1B3C53] space-y-1 text-sm mt-3"
+                  >
+                    <li><strong>Techno Hackathon:</strong> Finalist</li>
+                    <li>
+                      <strong>Business Model Competition:</strong> Third Place
+                    </li>
+                    <li>
+                      <strong>Chinese Public Speaking:</strong> Second Place
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="py-24 bg-transparent">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+              <h2 class="text-4xl font-bold text-[#1B3C53]">
+                Featured Projects
+              </h2>
+              <p class="text-[#1B3C53] mt-4 max-w-2xl mx-auto text-lg">
+                A couple of projects I'm proud to showcase.
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+            >
+              <div
+                class="bg-white/30 backdrop-blur-md rounded-lg shadow-lg border border-white/20 p-6"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <div
+                  class="aspect-video bg-slate-800/50 rounded-md flex items-center justify-center mb-4 relative overflow-hidden group"
+                >
+                  <svg
+                    class="w-16 h-16 text-white/70 group-hover:text-white group-hover:scale-110 transition-all duration-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-[#1B3C53] mb-2">
+                  Business Model Pitch
+                </h3>
+                <p class="text-sm leading-relaxed text-[#1B3C53]/80">
+                  Presentation for the national business model competition,
+                  where our team secured a third-place victory.
+                </p>
+              </div>
+              <div
+                class="bg-white/30 backdrop-blur-md rounded-lg shadow-lg border border-white/20 p-6"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <div
+                  class="aspect-video bg-slate-800/50 rounded-md flex items-center justify-center mb-4 relative overflow-hidden group"
+                >
+                  <svg
+                    class="w-16 h-16 text-white/70 group-hover:text-white group-hover:scale-110 transition-all duration-300"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-[#1B3C53] mb-2">
+                  Public Speaking Award
+                </h3>
+                <p class="text-sm leading-relaxed text-[#1B3C53]/80">
+                  A recording of the final round performance at the Chinese
+                  Public Speaking competition, earning a second-place award.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="education" class="py-24 bg-transparent">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+              <h2 class="text-4xl font-bold text-[#1B3C53]">Education</h2>
+            </div>
+            <div class="max-w-3xl mx-auto" data-aos="zoom-in-up">
+              <div
+                class="bg-white/30 backdrop-blur-md rounded-lg shadow-lg p-8 border border-white/20 transform hover:scale-105 transition-transform duration-300"
+              >
+                <div
+                  class="flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left"
+                >
+                  <div class="flex-1">
+                    <h3 class="text-2xl font-bold text-[#1B3C53] mb-2">
+                      Bachelor of Business Administration
+                    </h3>
+                    <p class="text-[#456882] font-medium mb-2">
+                      American University of Phnom Penh
+                    </p>
+                    <p class="text-[#1B3C53] font-bold">2024 - 2027</p>
+                  </div>
+                  <div class="flex-shrink-0 bg-white/50 p-3 rounded-lg">
+                    <img
+                      src="image.png"
+                      alt="AUPP Logo"
+                      class="w-24 h-24 object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="contact" class="py-24 bg-transparent">
+          <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-[#1B3C53] mb-4">Get In Touch</h2>
+            <p
+              class="text-[#1B3C53] max-w-2xl mx-auto mb-10 text-lg leading-relaxed"
+            >
+              I'm currently seeking internship opportunities and am open to
+              collaborations. Let's connect!
+            </p>
+            <div class="flex justify-center">
+              <a
+                href="mailto:rinchankanika@gmail.com"
+                class="bg-[#1B3C53] text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-[#456882] hover:-translate-y-1 transform transition-all duration-300 flex items-center gap-3"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                  /></svg
+                >Contact Me</a
+              >
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="cvContent" class="hidden">
+        <section class="py-24 bg-transparent">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+              <h2 class="text-4xl font-bold text-[#1B3C53] mb-4">My CV</h2>
+              <p class="text-[#1B3C53] max-w-2xl mx-auto text-lg">
+                Download my professional CV below.
+              </p>
+            </div>
+            <div
+              class="max-w-4xl mx-auto bg-white/30 backdrop-blur-md rounded-lg shadow-lg p-4 sm:p-8 border border-white/20"
+              data-aos="zoom-in-up"
+            >
+              <img
+                src="Professional Modern CV Resume-1.png"
+                alt="Chankanika Rin - CV"
+                class="w-full max-w-3xl mx-auto shadow-lg rounded-lg border border-gray-200/50"
+              />
+              <div class="flex justify-center mt-8">
+                <a
+                  href="Professional Modern CV Resume.pdf"
+                  download="Chankanika_Rin_CV.pdf"
+                  class="bg-[#1B3C53] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#456882] hover:-translate-y-1 transform transition-all duration-300 flex items-center gap-3"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  Download PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="bg-transparent py-6 mt-12">
+      <div class="container mx-auto px-6 text-center text-[#1B3C53]/60">
+        <p>&copy; 2025 Chankanika Rin. Designed with passion.</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true, offset: 50 });
+
+      const cursorDot = document.querySelector(".cursor-dot");
+      const cursorOutline = document.querySelector(".cursor-outline");
+      const interactiveElements = document.querySelectorAll("a, button");
+      window.addEventListener("mousemove", (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        cursorOutline.animate(
+          { left: `${posX}px`, top: `${posY}px` },
+          { duration: 500, fill: "forwards" }
+        );
+      });
+      interactiveElements.forEach((el) => {
+        el.addEventListener("mouseenter", () =>
+          cursorOutline.classList.add("cursor-hover")
+        );
+        el.addEventListener("mouseleave", () =>
+          cursorOutline.classList.remove("cursor-hover")
+        );
+      });
+      document.addEventListener("mouseenter", () => {
+        cursorDot.classList.remove("cursor-hidden");
+        cursorOutline.classList.remove("cursor-hidden");
+      });
+      document.addEventListener("mouseleave", () => {
+        cursorDot.classList.add("cursor-hidden");
+        cursorOutline.classList.add("cursor-hidden");
+      });
+
+      const aboutMeContent = document.getElementById("aboutMeContent");
+      const cvContent = document.getElementById("cvContent");
+      const aboutBtn = document.getElementById("aboutBtn");
+      const cvBtn = document.getElementById("cvBtn");
+
+      // Updated class names for the new toggle switch style
+      const activeBtnClass =
+        "bg-black text-white font-bold py-2 px-6 rounded-md shadow-inner transition-all duration-300";
+      const inactiveBtnClass =
+        "bg-transparent text-[#1B3C53]/70 font-bold py-2 px-6 rounded-md hover:bg-white/50 transition-all duration-300";
+
+      function showAbout() {
+        aboutMeContent.classList.remove("hidden");
+        cvContent.classList.add("hidden");
+        aboutBtn.className = activeBtnClass;
+        aboutBtn.textContent = "About Me"; // Add text content
+        cvBtn.className = inactiveBtnClass;
+        cvBtn.textContent = "My CV";
+      }
+
+      function showCv() {
+        aboutMeContent.classList.add("hidden");
+        cvContent.classList.remove("hidden");
+        aboutBtn.className = inactiveBtnClass;
+        aboutBtn.textContent = "About Me";
+        cvBtn.className = activeBtnClass;
+        cvBtn.textContent = "My CV";
+        AOS.refresh();
+      }
+
+      showAbout();
+
+      function navigateToSection(sectionId) {
+        if (!cvContent.classList.contains("hidden")) {
+          showAbout();
+        }
+
+        setTimeout(() => {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            const headerOffset = 80;
+            const elementPosition = section.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+          }
+        }, 100);
+      }
+
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (
+                  link.getAttribute("href").substring(1) === entry.target.id
+                ) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        },
+        { rootMargin: "-40% 0px -60% 0px" }
+      );
+      sections.forEach((section) => observer.observe(section));
+    </script>
+  </body>
+</html>
