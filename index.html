@@ -213,14 +213,6 @@
           </li>
           <li>
             <a
-              href="#projects"
-              onclick="navigateToSection('projects')"
-              class="nav-link hover:text-[#1B3C53] transition-colors duration-300"
-              >Video</a
-            >
-          </li>
-          <li>
-            <a
               href="#education"
               onclick="navigateToSection('education')"
               class="nav-link hover:text-[#1B3C53] transition-colors duration-300"
@@ -317,11 +309,26 @@
         data-aos="fade-up"
       >
         <div
-          class="bg-white/30 backdrop-blur-md inline-flex p-1.5 rounded-lg shadow-lg border border-white/20 space-x-2"
+          class="bg-white/30 backdrop-blur-md rounded-lg shadow-lg border border-white/20 overflow-x-auto"
         >
-          <button id="aboutBtn" onclick="showAbout()" class=""></button>
-          <button id="cvBtn" onclick="showCv()" class=""></button>
-          <button id="docsBtn" onclick="showDocs()" class=""></button>
+          <div class="inline-flex space-x-2 p-1.5 w-max">
+            <button id="aboutBtn" onclick="showAbout()" class=""></button>
+            <button id="cvBtn" onclick="showCv()" class=""></button>
+            <button id="coverBtn" onclick="showCover()" class=""></button>
+            <button id="orderBtn" onclick="showOrder()" class=""></button>
+            <button
+              id="appreciationBtn"
+              onclick="showAppreciation()"
+              class=""
+            ></button>
+            <button id="researchBtn" onclick="showResearch()" class=""></button>
+            <button id="proVideoBtn" onclick="showProVideo()" class=""></button>
+            <button
+              id="personalVideoBtn"
+              onclick="showPersonalVideo()"
+              class=""
+            ></button>
+          </div>
         </div>
       </div>
 
@@ -410,71 +417,6 @@
                     </li>
                   </ul>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" class="py-24 bg-transparent">
-          <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-              <h2 class="text-4xl font-bold text-[#1B3C53]">
-                Featured Projects
-              </h2>
-              <p class="text-[#1B3C53] mt-4 max-w-2xl mx-auto text-lg">
-                A couple of projects I'm proud to showcase.
-              </p>
-            </div>
-            <div
-              class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
-            >
-              <div
-                class="bg-white/30 backdrop-blur-md rounded-lg shadow-lg border border-white/20 p-6"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                <div
-                  class="aspect-video bg-black rounded-md mb-4 relative overflow-hidden group"
-                >
-                  <video
-                    src="Intro to busn com_web.mp4"
-                    controls
-                    class="w-full h-full object-cover"
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <h3 class="text-xl font-bold text-[#1B3C53] mb-2">
-                  Professional Marketing Video
-                </h3>
-                <p class="text-sm leading-relaxed text-[#1B3C53]/80">
-                  A professional marketing presentation video showcasing my
-                  communication, presentation, and storytelling skills.
-                </p>
-              </div>
-              <div
-                class="bg-white/30 backdrop-blur-md rounded-lg shadow-lg border border-white/20 p-6"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <div
-                  class="aspect-video bg-black rounded-md mb-4 relative overflow-hidden group"
-                >
-                  <video
-                    src="Personal Marketing video_web.mp4"
-                    controls
-                    class="w-full h-full object-cover"
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <h3 class="text-xl font-bold text-[#1B3C53] mb-2">
-                  Personal Marketing Video
-                </h3>
-                <p class="text-sm leading-relaxed text-[#1B3C53]/80">
-                  A personal marketing video introducing who I am, my goals, and
-                  how I can bring value to future opportunities.
-                </p>
               </div>
             </div>
           </div>
@@ -590,109 +532,206 @@
         </section>
       </div>
 
-      <div id="docsContent" class="hidden">
+      <!-- Cover Letter Tab -->
+      <div id="coverContent" class="hidden">
         <section class="py-24 bg-transparent">
           <div class="container mx-auto px-6">
             <div class="text-center mb-12" data-aos="fade-up">
-              <h2 class="text-4xl font-bold text-[#1B3C53] mb-4">Documents</h2>
+              <h2 class="text-4xl font-bold text-[#1B3C53] mb-4">
+                Cover Letter
+              </h2>
               <p class="text-[#1B3C53] max-w-2xl mx-auto text-lg">
-                Additional letters and academic work that support my application.
+                A tailored cover letter highlighting my strengths and motivation.
+              </p>
+            </div>
+            <div
+              class="max-w-4xl mx-auto bg-white/30 backdrop-blur-md rounded-lg shadow-lg p-4 sm:p-8 border border-white/20"
+              data-aos="zoom-in-up"
+            >
+              <img
+                src="coverletter.png"
+                alt="Cover Letter"
+                class="w-full max-w-3xl mx-auto shadow-lg rounded-lg border border-gray-200/50"
+              />
+              <div class="flex justify-center mt-8">
+                <a
+                  href="coverletter.png"
+                  download="Chankanika_Rin_Cover_Letter.png"
+                  class="bg-[#1B3C53] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#456882] hover:-translate-y-1 transform transition-all duration-300 flex items-center gap-3"
+                >
+                  Download Cover Letter
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Purchase Order Letter Tab -->
+      <div id="orderContent" class="hidden">
+        <section class="py-24 bg-transparent">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+              <h2 class="text-4xl font-bold text-[#1B3C53] mb-4">
+                Purchase Order Letter
+              </h2>
+              <p class="text-[#1B3C53] max-w-2xl mx-auto text-lg">
+                A professional purchase order demonstrating my business writing
+                skills.
+              </p>
+            </div>
+            <div
+              class="max-w-4xl mx-auto bg-white/30 backdrop-blur-md rounded-lg shadow-lg p-4 sm:p-8 border border-white/20"
+              data-aos="zoom-in-up"
+            >
+              <img
+                src="OrderLetter.png"
+                alt="Purchase Order Letter"
+                class="w-full max-w-3xl mx-auto shadow-lg rounded-lg border border-gray-200/50"
+              />
+              <div class="flex justify-center mt-8">
+                <a
+                  href="OrderLetter.png"
+                  download="Chankanika_Rin_Purchase_Order.png"
+                  class="bg-[#1B3C53] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#456882] hover:-translate-y-1 transform transition-all duration-300 flex items-center gap-3"
+                >
+                  Download Purchase Order
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Appreciation Letter Tab -->
+      <div id="appreciationContent" class="hidden">
+        <section class="py-24 bg-transparent">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+              <h2 class="text-4xl font-bold text-[#1B3C53] mb-4">
+                Appreciation Letter
+              </h2>
+              <p class="text-[#1B3C53] max-w-2xl mx-auto text-lg">
+                A letter of appreciation that reflects my professionalism and
+                gratitude.
+              </p>
+            </div>
+            <div
+              class="max-w-4xl mx-auto bg-white/30 backdrop-blur-md rounded-lg shadow-lg p-4 sm:p-8 border border-white/20"
+              data-aos="zoom-in-up"
+            >
+              <img
+                src="SampleLetter.png"
+                alt="Appreciation Letter"
+                class="w-full max-w-3xl mx-auto shadow-lg rounded-lg border border-gray-200/50"
+              />
+              <div class="flex justify-center mt-8">
+                <a
+                  href="SampleLetter.png"
+                  download="Chankanika_Rin_Sample_Letter.png"
+                  class="bg-[#1B3C53] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#456882] hover:-translate-y-1 transform transition-all duration-300 flex items-center gap-3"
+                >
+                  Download Appreciation Letter
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Research Paper Tab -->
+      <div id="researchContent" class="hidden">
+        <section class="py-24 bg-transparent">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+              <h2 class="text-4xl font-bold text-[#1B3C53] mb-4">
+                Business Research Paper
+              </h2>
+              <p class="text-[#1B3C53] max-w-2xl mx-auto text-lg">
+                An academic research paper on factors influencing students'
+                choice of Soriya Pearl's versatile necklace.
               </p>
             </div>
             <div
               class="max-w-5xl mx-auto bg-white/30 backdrop-blur-md rounded-lg shadow-lg p-4 sm:p-8 border border-white/20"
               data-aos="zoom-in-up"
             >
-              <div
-                class="grid grid-cols-1 md:grid-cols-2 gap-6"
-              >
-                <!-- Cover Letter -->
-                <div class="bg-white/40 rounded-lg shadow-md p-4 flex flex-col">
-                  <div class="aspect-[3/4] overflow-hidden rounded-md border border-gray-200/60 mb-3">
-                    <img
-                      src="coverletter.png"
-                      alt="Cover Letter"
-                      class="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h4 class="font-semibold text-[#1B3C53] mb-2 text-center">
-                    Cover Letter
-                  </h4>
-                  <a
-                    href="coverletter.png"
-                    download="Chankanika_Rin_Cover_Letter.png"
-                    class="mt-auto inline-flex items-center justify-center bg-[#1B3C53] text-white text-sm font-semibold py-2 px-4 rounded-md hover:bg-[#456882] transition-colors duration-300"
-                  >
-                    Download
-                  </a>
-                </div>
+              <div class="aspect-[4/3] w-full overflow-hidden rounded-md bg-white">
+                <iframe
+                  src="BusinessResearchPaper .pdf#view=FitH"
+                  class="w-full h-full"
+                ></iframe>
+              </div>
+              <div class="flex justify-center mt-8">
+                <a
+                  href="BusinessResearchPaper .pdf"
+                  download="Chankanika_Rin_Business_Research_Paper.pdf"
+                  class="bg-[#1B3C53] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#456882] hover:-translate-y-1 transform transition-all duration-300 flex items-center gap-3"
+                >
+                  Download Research Paper (PDF)
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
-                <!-- Purchase Order Letter -->
-                <div class="bg-white/40 rounded-lg shadow-md p-4 flex flex-col">
-                  <div class="aspect-[3/4] overflow-hidden rounded-md border border-gray-200/60 mb-3">
-                    <img
-                      src="OrderLetter.png"
-                      alt="Purchase Order Letter"
-                      class="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h4 class="font-semibold text-[#1B3C53] mb-2 text-center">
-                    Purchase Order Letter
-                  </h4>
-                  <a
-                    href="OrderLetter.png"
-                    download="Chankanika_Rin_Purchase_Order.png"
-                    class="mt-auto inline-flex items-center justify-center bg-[#1B3C53] text-white text-sm font-semibold py-2 px-4 rounded-md hover:bg-[#456882] transition-colors duration-300"
-                  >
-                    Download
-                  </a>
-                </div>
+      <!-- Professional Marketing Video Tab -->
+      <div id="proVideoContent" class="hidden">
+        <section class="py-24 bg-transparent">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+              <h2 class="text-4xl font-bold text-[#1B3C53] mb-4">
+                Professional Marketing Video
+              </h2>
+              <p class="text-[#1B3C53] max-w-2xl mx-auto text-lg">
+                A professional marketing presentation showcasing my communication
+                and storytelling skills.
+              </p>
+            </div>
+            <div
+              class="max-w-4xl mx-auto bg-white/30 backdrop-blur-md rounded-lg shadow-lg p-4 sm:p-8 border border-white/20"
+              data-aos="zoom-in-up"
+            >
+              <div class="aspect-video bg-black rounded-md mb-4 overflow-hidden">
+                <video
+                  src="Intro to busn com_web.mp4"
+                  controls
+                  class="w-full h-full object-cover"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
-                <!-- Sample Letter -->
-                <div class="bg-white/40 rounded-lg shadow-md p-4 flex flex-col">
-                  <div class="aspect-[3/4] overflow-hidden rounded-md border border-gray-200/60 mb-3">
-                    <img
-                      src="SampleLetter.png"
-                      alt="Sample Letter"
-                      class="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h4 class="font-semibold text-[#1B3C53] mb-2 text-center">
-                    Appreciation Letter
-                  </h4>
-                  <a
-                    href="SampleLetter.png"
-                    download="Chankanika_Rin_Sample_Letter.png"
-                    class="mt-auto inline-flex items-center justify-center bg-[#1B3C53] text-white text-sm font-semibold py-2 px-4 rounded-md hover:bg-[#456882] transition-colors duration-300"
-                  >
-                    Download
-                  </a>
-                </div>
-
-                <!-- Business Research Paper -->
-                <div class="bg-white/40 rounded-lg shadow-md p-4 flex flex-col">
-                  <div class="flex flex-col px-2 py-4 border border-dashed border-gray-300 rounded-md mb-3 bg-white/40">
-                    <span class="text-sm font-semibold text-[#1B3C53] mb-1 text-center">
-                      Business Research Paper
-                    </span>
-                    <p class="text-xs text-[#1B3C53]/80 text-center mb-3">
-                      Factors Influencing Students' Choice of Soriya Pearl's Versatile Necklace
-                    </p>
-                    <div class="aspect-[4/3] w-full overflow-hidden rounded-md bg-white">
-                      <iframe
-                        src="BusinessResearchPaper .pdf#view=FitH"
-                        class="w-full h-full"
-                      ></iframe>
-                    </div>
-                  </div>
-                  <a
-                    href="BusinessResearchPaper .pdf"
-                    download="Chankanika_Rin_Business_Research_Paper.pdf"
-                    class="mt-auto inline-flex items-center justify-center bg-[#1B3C53] text-white text-sm font-semibold py-2 px-4 rounded-md hover:bg-[#456882] transition-colors duration-300"
-                  >
-                    Download PDF
-                  </a>
-                </div>
+      <!-- Personal Marketing Video Tab -->
+      <div id="personalVideoContent" class="hidden">
+        <section class="py-24 bg-transparent">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+              <h2 class="text-4xl font-bold text-[#1B3C53] mb-4">
+                Personal Marketing Video
+              </h2>
+              <p class="text-[#1B3C53] max-w-2xl mx-auto text-lg">
+                A personal marketing video introducing who I am and how I can
+                bring value to future opportunities.
+              </p>
+            </div>
+            <div
+              class="max-w-4xl mx-auto bg-white/30 backdrop-blur-md rounded-lg shadow-lg p-4 sm:p-8 border border-white/20"
+              data-aos="zoom-in-up"
+            >
+              <div class="aspect-video bg-black rounded-md mb-4 overflow-hidden">
+                <video
+                  src="Personal Marketing video_web.mp4"
+                  controls
+                  class="w-full h-full object-cover"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
@@ -740,12 +779,27 @@
         cursorOutline.classList.add("cursor-hidden");
       });
 
-      const aboutMeContent = document.getElementById("aboutMeContent");
-      const cvContent = document.getElementById("cvContent");
-      const docsContent = document.getElementById("docsContent");
-      const aboutBtn = document.getElementById("aboutBtn");
-      const cvBtn = document.getElementById("cvBtn");
-      const docsBtn = document.getElementById("docsBtn");
+      const tabContents = {
+        about: document.getElementById("aboutMeContent"),
+        cv: document.getElementById("cvContent"),
+        cover: document.getElementById("coverContent"),
+        order: document.getElementById("orderContent"),
+        appreciation: document.getElementById("appreciationContent"),
+        research: document.getElementById("researchContent"),
+        proVideo: document.getElementById("proVideoContent"),
+        personalVideo: document.getElementById("personalVideoContent"),
+      };
+
+      const tabButtons = {
+        about: document.getElementById("aboutBtn"),
+        cv: document.getElementById("cvBtn"),
+        cover: document.getElementById("coverBtn"),
+        order: document.getElementById("orderBtn"),
+        appreciation: document.getElementById("appreciationBtn"),
+        research: document.getElementById("researchBtn"),
+        proVideo: document.getElementById("proVideoBtn"),
+        personalVideo: document.getElementById("personalVideoBtn"),
+      };
 
       // Updated class names for the new toggle switch style
       const activeBtnClass =
@@ -753,48 +807,76 @@
       const inactiveBtnClass =
         "bg-transparent text-[#1B3C53]/70 font-bold py-2 px-6 rounded-md hover:bg-white/50 transition-all duration-300";
 
+      function setTabLabels() {
+        tabButtons.about.textContent = "About Me";
+        tabButtons.cv.textContent = "My CV";
+        tabButtons.cover.textContent = "Cover Letter";
+        tabButtons.order.textContent = "Purchase Order";
+        tabButtons.appreciation.textContent = "Appreciation Letter";
+        tabButtons.research.textContent = "Research Paper";
+        tabButtons.proVideo.textContent = "Professional Video";
+        tabButtons.personalVideo.textContent = "Personal Video";
+      }
+
+      function setActiveTab(tabKey) {
+        // Show/hide content
+        Object.entries(tabContents).forEach(([key, el]) => {
+          if (!el) return;
+          if (key === tabKey) {
+            el.classList.remove("hidden");
+          } else {
+            el.classList.add("hidden");
+          }
+        });
+
+        // Update button styles
+        Object.entries(tabButtons).forEach(([key, btn]) => {
+          if (!btn) return;
+          btn.className = key === tabKey ? activeBtnClass : inactiveBtnClass;
+        });
+
+        setTabLabels();
+        AOS.refresh();
+      }
+
       function showAbout() {
-        aboutMeContent.classList.remove("hidden");
-        cvContent.classList.add("hidden");
-        docsContent.classList.add("hidden");
-        aboutBtn.className = activeBtnClass;
-        aboutBtn.textContent = "About Me"; // Add text content
-        cvBtn.className = inactiveBtnClass;
-        cvBtn.textContent = "My CV";
-        docsBtn.className = inactiveBtnClass;
-        docsBtn.textContent = "Documents";
+        setActiveTab("about");
       }
 
       function showCv() {
-        aboutMeContent.classList.add("hidden");
-        cvContent.classList.remove("hidden");
-        docsContent.classList.add("hidden");
-        aboutBtn.className = inactiveBtnClass;
-        aboutBtn.textContent = "About Me";
-        cvBtn.className = activeBtnClass;
-        cvBtn.textContent = "My CV";
-        docsBtn.className = inactiveBtnClass;
-        docsBtn.textContent = "Documents";
-        AOS.refresh();
+        setActiveTab("cv");
       }
 
-      function showDocs() {
-        aboutMeContent.classList.add("hidden");
-        cvContent.classList.add("hidden");
-        docsContent.classList.remove("hidden");
-        aboutBtn.className = inactiveBtnClass;
-        aboutBtn.textContent = "About Me";
-        cvBtn.className = inactiveBtnClass;
-        cvBtn.textContent = "My CV";
-        docsBtn.className = activeBtnClass;
-        docsBtn.textContent = "Documents";
-        AOS.refresh();
+      function showCover() {
+        setActiveTab("cover");
       }
 
-      showAbout();
+      function showOrder() {
+        setActiveTab("order");
+      }
+
+      function showAppreciation() {
+        setActiveTab("appreciation");
+      }
+
+      function showResearch() {
+        setActiveTab("research");
+      }
+
+      function showProVideo() {
+        setActiveTab("proVideo");
+      }
+
+      function showPersonalVideo() {
+        setActiveTab("personalVideo");
+      }
+
+      // Initialize default tab
+      setActiveTab("about");
 
       function navigateToSection(sectionId) {
-        if (!cvContent.classList.contains("hidden")) {
+        // Always ensure main "About" layout is visible when navigating sections
+        if (tabContents.about.classList.contains("hidden")) {
           showAbout();
         }
 
